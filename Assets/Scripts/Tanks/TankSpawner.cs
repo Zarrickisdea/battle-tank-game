@@ -8,13 +8,21 @@ public class TankSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnTank();
+        TankController tankController = SpawnTank();
+        SpawnCamera(tankController);
     }
 
     private TankController SpawnTank()
     {
         TankModel tankModel = new TankModel(15.0f);
-        TankController tankController = new TankController(tankPrefab, tankModel, virtualCamera);
+        TankController tankController = new TankController(tankPrefab, tankModel);
         return tankController;
+    }
+
+    private void SpawnCamera(TankController tankController)
+    {
+        GameObject.Instantiate<CinemachineVirtualCamera>(virtualCamera);
+        virtualCamera.transform.position = new Vector3(35, 15, 35);
+        virtualCamera.Follow = tankController.GetTankView();
     }
 }

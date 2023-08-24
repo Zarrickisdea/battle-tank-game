@@ -1,20 +1,17 @@
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class TankController
 {
-    private TankView tankView { get; set; }
-    private TankModel tankModel { get; set; }
+    private TankView tankView;
+    private TankModel tankModel;
 
     private Vector2 moveVector;
 
-    public TankController(TankView view, TankModel model, CinemachineVirtualCamera camera)
+    public TankController(TankView view, TankModel model)
     {
         tankModel = model;
         tankView = GameObject.Instantiate<TankView>(view);
-        camera = GameObject.Instantiate<CinemachineVirtualCamera>(camera);
         tankView.SetTankController(this);
-        tankView.SetCamera(camera);
     }
 
     public void InputHandler(InputAction.CallbackContext context)
@@ -33,5 +30,10 @@ public class TankController
         {
             tankView.transform.rotation = Quaternion.LookRotation(new Vector3(-moveVector.x, 0, -moveVector.y));
         }
+    }
+
+    public Transform GetTankView()
+    {
+        return tankView.transform;
     }
 }
