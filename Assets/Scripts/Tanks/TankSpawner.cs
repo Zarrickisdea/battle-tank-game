@@ -3,26 +3,25 @@ using Cinemachine;
 
 public class TankSpawner : MonoBehaviour
 {
+    [SerializeField] private float speed = 15.0f;
     [SerializeField] private TankView tankPrefab;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
     private void Start()
     {
         TankController tankController = SpawnTank();
-        SpawnCamera(tankController);
+        SetCamera(tankController);
     }
 
     private TankController SpawnTank()
     {
-        TankModel tankModel = new TankModel(15.0f);
+        TankModel tankModel = new TankModel(speed);
         TankController tankController = new TankController(tankPrefab, tankModel);
         return tankController;
     }
 
-    private void SpawnCamera(TankController tankController)
+    private void SetCamera(TankController tankController)
     {
-        GameObject.Instantiate<CinemachineVirtualCamera>(virtualCamera);
-        virtualCamera.transform.position = new Vector3(35, 15, 35);
         virtualCamera.Follow = tankController.GetTankView();
     }
 }
