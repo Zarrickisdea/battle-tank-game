@@ -2,13 +2,21 @@ using UnityEngine;
 
 public class GenericSingleton<T> : MonoBehaviour where T : GenericSingleton<T>
 {
-    public static T Instance { get; private set; }
+    private static T instance;
+
+    public static T Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
 
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = (T)this;
+            instance = (T)this;
             DontDestroyOnLoad(gameObject);
         }
         else

@@ -11,6 +11,7 @@ public class TankController
     {
         tankModel = model;
         tankView = GameObject.Instantiate<TankView>(view);
+        tankModel.Rb = tankView.GetComponent<Rigidbody>();
         tankView.SetTankController(this);
     }
 
@@ -21,7 +22,7 @@ public class TankController
 
     public void Move()
     {
-        tankView.transform.position += new Vector3(-moveVector.x, 0, -moveVector.y) * tankModel.Speed * Time.deltaTime;
+        tankModel.Rb.velocity = new Vector3(-moveVector.x, 0, -moveVector.y) * tankModel.Speed;
     }
 
     public void Rotate()

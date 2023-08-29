@@ -9,8 +9,8 @@ public class TankSpawner : MonoBehaviour
 
     private void Start()
     {
-        TankController tankController = SpawnTank();
-        SetCamera(tankController);
+        TankController playerTankController = SpawnTank();
+        SetCamera(playerTankController);
     }
 
     private TankController SpawnTank()

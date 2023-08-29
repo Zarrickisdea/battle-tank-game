@@ -5,7 +5,7 @@ public class TankView : MonoBehaviour
 {
     private TankController tankController;
 
-    private void Update()
+    private void FixedUpdate()
     {
         tankController.Rotate();
         tankController.Move();
