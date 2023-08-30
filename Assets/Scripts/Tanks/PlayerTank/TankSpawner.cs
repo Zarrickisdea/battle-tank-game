@@ -1,5 +1,7 @@
 using UnityEngine;
 using Cinemachine;
+using ScriptableObjects.Tanks;
+using PlayerTank;
 
 public class TankSpawner : MonoBehaviour
 {
@@ -16,7 +18,7 @@ public class TankSpawner : MonoBehaviour
     {
         TankScriptableObject newTank = GetRandomTank();
         TankModel tankModel = new TankModel(newTank);
-        TankController tankController = new TankController(newTank.tankView, tankModel);
+        TankController tankController = new TankController(newTank.TankView, tankModel);
         return tankController;
     }
 
