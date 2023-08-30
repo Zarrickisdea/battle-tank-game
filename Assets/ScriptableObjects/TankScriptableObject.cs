@@ -1,8 +1,10 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "TankScriptableObject", menuName = "ScriptableObjects/TankScriptableObject")]
 public class TankScriptableObject : ScriptableObject
 {
-    [CreateAssetMenu(fileName = "TankScriptableObject", menuName = "ScriptableObjects/TankScriptableObject", order = 1)]
     public TankType tankType;
-
+    public TankView tankView;
+    public float moveSpeed;
+    public float health;
 }

@@ -3,21 +3,22 @@ using UnityEngine;
 public class TankModel
 {
     private float speed;
-    private Rigidbody rb;
-    public Rigidbody Rb
-    {
-        get => rb;
-        set => rb = value;
-    }
+    private float health;
 
-    public TankModel(float speed)
+    public TankModel(TankScriptableObject tankScriptableObject)
     {
-        this.speed = speed;
+        speed = tankScriptableObject.moveSpeed;
+        health = tankScriptableObject.health;
     }
 
     public float Speed
     {
         get => speed;
+    }
+
+    public float Health
+    {
+        get => health;
     }
 }
 

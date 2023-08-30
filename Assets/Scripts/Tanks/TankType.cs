@@ -1,6 +1,6 @@
-using UnityEngine;
-
-public static class TankType
+public enum TankType
 {
-
+    Blue,
+    Green,
+    Red
 }

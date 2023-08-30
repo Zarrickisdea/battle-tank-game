@@ -154,9 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265c18e9464e3fb47b4ca532f42e7730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  tankPrefab: {fileID: 4678438345461600512, guid: 43ecf98648d4c124d965c3ebfec08a53,
-    type: 3}
+  tankList: {fileID: 11400000, guid: dd4e468128b06d140ad3cba63d825c69, type: 2}
   virtualCamera: {fileID: 730285923}
 --- !u!4 &699757380
 Transform:

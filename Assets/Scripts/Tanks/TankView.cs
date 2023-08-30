@@ -4,6 +4,12 @@ using UnityEngine.InputSystem;
 public class TankView : MonoBehaviour
 {
     private TankController tankController;
+    [SerializeField] private Rigidbody rb;
+
+    public Rigidbody Rb
+    {
+        get => rb;
+    }
 
     private void FixedUpdate()
     {

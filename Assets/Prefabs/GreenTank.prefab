@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 9219328599109714496}
   - component: {fileID: 6034402949918586237}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: GreenTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871be710398f3644688999790eb387c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 9219328599109714496}
 --- !u!114 &4678438345461600527
 MonoBehaviour:
   m_ObjectHideFlags: 0
