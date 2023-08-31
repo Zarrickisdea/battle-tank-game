@@ -1,3 +1,4 @@
+using Bullet;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,10 +8,16 @@ namespace PlayerTank
     {
         private TankController tankController;
         [SerializeField] private Rigidbody rb;
+        [SerializeField] private BulletSpawner bulletSpawner;
 
         public Rigidbody Rb
         {
             get => rb;
+        }
+
+        public BulletSpawner BulletSpawner
+        {
+            get => bulletSpawner;
         }
 
         private void FixedUpdate()
@@ -18,6 +25,7 @@ namespace PlayerTank
             tankController.Rotate();
             tankController.Move();
         }
+
         public void InputHandler(InputAction.CallbackContext context)
         {
             tankController.InputHandler(context);

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Bullet;
 
 namespace PlayerTank
 {
@@ -19,7 +20,14 @@ namespace PlayerTank
 
         public void InputHandler(InputAction.CallbackContext context)
         {
-            moveVector = context.ReadValue<Vector2>();
+            if (context.action.name == "Move")
+            {
+                moveVector = context.ReadValue<Vector2>();
+            }
+            else if (context.action.name == "Fire")
+            {
+                Fire();
+            }
         }
 
         public void Move()
@@ -33,6 +41,12 @@ namespace PlayerTank
             {
                 tankView.transform.rotation = Quaternion.LookRotation(new Vector3(-moveVector.x, 0, -moveVector.y));
             }
+        }
+
+        public void Fire()
+        {
+            BulletSpawner bulletSpawner = tankView.BulletSpawner;
+            BulletController bullet = bulletSpawner.SpawnBullet(bulletSpawner.transform);
         }
 
         public Transform GetTankView()

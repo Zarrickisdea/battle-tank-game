@@ -2,45 +2,39 @@ using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace EnemyTank
+public class EnemyTankSpawner : MonoBehaviour
 {
-    public class EnemyTankSpawner : MonoBehaviour
+    [SerializeField] private GameObject enemyTankPrefab;
+    [SerializeField] private NavMeshSurface navMeshSurface;
+    [SerializeField] private float radius = 10f;
+
+    private void Start()
     {
-        [SerializeField] private GameObject enemyTankPrefab;
-        [SerializeField] private NavMeshSurface navMeshSurface;
-
-        private void Start()
+        if (navMeshSurface.navMeshData != null)
         {
-            if (navMeshSurface.navMeshData != null)
+            for (int i = 0; i < radius; i++)
             {
-                for (int i = 0; i < 30; i++)
-                {
-                    SpawnEnemy();
-                }
+                SpawnEnemy();
             }
         }
+    }
 
-        private void SpawnEnemy()
+    private void SpawnEnemy()
+    {
+        Vector3 spawnPosition = GenerateRandomSpawnPosition();
+
+        NavMeshHit navMeshHit;
+
+        if (NavMesh.SamplePosition(spawnPosition, out navMeshHit, 5f, NavMesh.AllAreas))
         {
-            Vector3 spawnPosition = GenerateRandomSpawnPosition();
-
-            NavMeshHit navMeshHit;
-
-            if (NavMesh.SamplePosition(spawnPosition, out navMeshHit, 5f, NavMesh.AllAreas))
-            {
-                Instantiate(enemyTankPrefab, navMeshHit.position, Quaternion.identity);
-                print("enemy spawned");
-            }
-            else
-            {
-                print("AWW HELL NAH CUH");
-            }
+            Instantiate(enemyTankPrefab, navMeshHit.position, Quaternion.identity);
+            print("enemy spawned");
         }
+    }
 
-        private Vector3 GenerateRandomSpawnPosition()
-        {
-            Vector3 spawnPosition = Vector3.zero + Random.insideUnitSphere * 25;
-            return spawnPosition;
-        }
+    private Vector3 GenerateRandomSpawnPosition()
+    {
+        Vector3 spawnPosition = Vector3.zero + Random.insideUnitSphere * radius;
+        return spawnPosition;
     }
 }

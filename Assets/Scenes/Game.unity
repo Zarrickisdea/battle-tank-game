@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776589329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78fdb1345c4fd054192df30aee100894, type: 3}
   m_Name: 
@@ -1092,6 +1092,7 @@ MonoBehaviour:
   enemyTankPrefab: {fileID: 6150912310487007294, guid: 0809fd013d6a80849826902c5878ef4d,
     type: 3}
   navMeshSurface: {fileID: 1349332428}
+  radius: 30
 --- !u!4 &1776589331
 Transform:
   m_ObjectHideFlags: 0
