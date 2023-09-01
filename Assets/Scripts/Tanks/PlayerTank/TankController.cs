@@ -10,6 +10,7 @@ namespace PlayerTank
         private TankModel tankModel;
 
         private Vector2 moveVector;
+        private bool canFire = true;
 
         public TankController(TankView view, TankModel model)
         {
@@ -24,7 +25,7 @@ namespace PlayerTank
             {
                 moveVector = context.ReadValue<Vector2>();
             }
-            else if (context.action.name == "Fire")
+            else if (context.action.name == "Fire" && canFire)
             {
                 Fire();
             }
@@ -47,6 +48,15 @@ namespace PlayerTank
         {
             BulletSpawner bulletSpawner = tankView.BulletSpawner;
             BulletController bullet = bulletSpawner.SpawnBullet(bulletSpawner.transform);
+
+            canFire = false;
+            tankView.StartCoroutine(FireCooldown());
+        }
+
+        private System.Collections.IEnumerator FireCooldown()
+        {
+            yield return new WaitForSeconds(tankModel.FireCooldown);
+            canFire = true;
         }
 
         public Transform GetTankView()

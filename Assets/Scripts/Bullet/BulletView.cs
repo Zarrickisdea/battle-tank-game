@@ -8,15 +8,17 @@ namespace Bullet
         private BulletController bulletController;
         [SerializeField] private Rigidbody rb;
         private float bulletLife;
+        private GameObject explosion;
 
         public Rigidbody Rb
         {
             get => rb;
         }
 
-        private void Start()
+        private void Awake()
         {
             bulletLife = bulletController.GetBulletModel().LifeTime;
+            explosion = bulletController.GetBulletModel().Explosion;
         }
 
         private void Update()
@@ -39,11 +41,10 @@ namespace Bullet
 
         public void Explode()
         {
-            GameObject explosion = Instantiate(bulletController.GetBulletModel().Explosion, transform.position, transform.rotation);
-            explosion.GetComponent<ParticleSystem>().Play();
-            Destroy(explosion, 1f);
+            GameObject effect = Instantiate(explosion, transform.position, transform.rotation);
+            effect.GetComponent<ParticleSystem>().Play();
+            Destroy(effect, 1f);
             Destroy(gameObject);
-
         }
 
         public void SetBulletController(BulletController bulletController)

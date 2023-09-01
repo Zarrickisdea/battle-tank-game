@@ -10,11 +10,13 @@ namespace ScriptableObjects.Tanks
         [SerializeField] private TankView tankView;
         [SerializeField] private float moveSpeed;
         [SerializeField] private float health;
+        [SerializeField] private float fireCooldown;
 
         public TankType TankType => tankType;
         public TankView TankView => tankView;
         public float MoveSpeed => moveSpeed;
         public float Health => health;
+        public float FireCooldown => fireCooldown;
 
     }
 }

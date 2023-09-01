@@ -17,3 +17,4 @@ MonoBehaviour:
     type: 3}
   moveSpeed: 15
   health: 150
+  fireCooldown: 1
