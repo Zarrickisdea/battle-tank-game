@@ -12,10 +12,12 @@ namespace ScriptableObjects.Bullets
         [SerializeField] private float speed;
         [SerializeField] private float damage;
         [SerializeField] private float lifeTime;
+        [SerializeField] private GameObject explosion;
 
         public BulletView BulletView => bulletView;
         public float Speed => speed;
         public float Damage => damage;
         public float LifeTime => lifeTime;
+        public GameObject Explosion => explosion;
     }
 }
