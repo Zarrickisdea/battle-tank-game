@@ -1,10 +1,11 @@
 using UnityEngine;
 using Cinemachine;
+using ScriptableObjects.Tanks;
+using PlayerTank;
 
 public class TankSpawner : MonoBehaviour
 {
-    [SerializeField] private float speed = 15.0f;
-    [SerializeField] private TankView tankPrefab;
+    [SerializeField] private TankListScriptableObject tankList;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
     private void Start()
@@ -15,13 +16,19 @@ public class TankSpawner : MonoBehaviour
 
     private TankController SpawnTank()
     {
-        TankModel tankModel = new TankModel(speed);
-        TankController tankController = new TankController(tankPrefab, tankModel);
+        TankScriptableObject newTank = GetRandomTank();
+        TankModel tankModel = new TankModel(newTank);
+        TankController tankController = new TankController(newTank.TankView, tankModel);
         return tankController;
     }
 
     private void SetCamera(TankController tankController)
     {
         virtualCamera.Follow = tankController.GetTankView();
+    }
+
+    private TankScriptableObject GetRandomTank()
+    {
+        return tankList[Random.Range(0, tankList.Count)];
     }
 }
