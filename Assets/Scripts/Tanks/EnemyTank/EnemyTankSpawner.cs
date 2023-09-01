@@ -1,10 +1,12 @@
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
+using ScriptableObjects.EnemyTank;
+using EnemyTank;
 
 public class EnemyTankSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyTankPrefab;
+    [SerializeField] private EnemyTankListScriptableObject enemyTankList;
     [SerializeField] private NavMeshSurface navMeshSurface;
     [SerializeField] private float radius = 10f;
 
@@ -27,8 +29,9 @@ public class EnemyTankSpawner : MonoBehaviour
 
         if (NavMesh.SamplePosition(spawnPosition, out navMeshHit, 5f, NavMesh.AllAreas))
         {
-            Instantiate(enemyTankPrefab, navMeshHit.position, Quaternion.identity);
-            print("enemy spawned");
+            EnemyTankScriptableObject enemyTank = enemyTankList[Random.Range(0, enemyTankList.Count)];
+            EnemyTankModel enemyTankModel = new EnemyTankModel(enemyTank);
+            EnemyTankController enemyTankController = new EnemyTankController(enemyTank.EnemyTankView, enemyTankModel, navMeshHit.position);
         }
     }
 
