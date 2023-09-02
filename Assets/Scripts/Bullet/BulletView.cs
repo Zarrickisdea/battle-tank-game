@@ -15,7 +15,7 @@ namespace Bullet
             get => rb;
         }
 
-        private void Awake()
+        private void Start()
         {
             bulletLife = bulletController.GetBulletModel().LifeTime;
             explosion = bulletController.GetBulletModel().Explosion;
