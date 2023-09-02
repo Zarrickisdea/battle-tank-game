@@ -10,5 +10,13 @@ namespace EnemyTank
         {
             enemyTankController = controller;
         }
+
+        public void Update()
+        {
+            if (enemyTankController != null)
+            {
+                enemyTankController.StartPatrol();
+            }
+        }
     }
 }
