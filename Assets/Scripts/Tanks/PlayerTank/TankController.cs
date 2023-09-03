@@ -29,7 +29,7 @@ namespace PlayerTank
             }
             else if (context.action.name == "Fire" && canFire)
             {
-                Fire();
+                Fire(tankModel.Damage);
             }
             else if (context.action.name == "Look")
             {
@@ -61,10 +61,10 @@ namespace PlayerTank
             }
         }
 
-        public void Fire()
+        public void Fire(float damage)
         {
             BulletSpawner bulletSpawner = tankView.BulletSpawner;
-            BulletController bullet = bulletSpawner.SpawnBullet(bulletSpawner.transform);
+            BulletController bullet = bulletSpawner.SpawnBullet(bulletSpawner.transform, damage);
 
             canFire = false;
             tankView.StartCoroutine(FireCooldown());

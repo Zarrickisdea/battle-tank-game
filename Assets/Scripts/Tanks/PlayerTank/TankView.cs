@@ -25,7 +25,7 @@ namespace PlayerTank
             tankController.Move();
         }
 
-        public void InputHandler(InputAction.CallbackContext context)
+        private void InputHandler(InputAction.CallbackContext context)
         {
             tankController.InputHandler(context);
         }

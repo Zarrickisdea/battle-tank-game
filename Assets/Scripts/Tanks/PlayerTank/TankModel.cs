@@ -7,12 +7,14 @@ namespace PlayerTank
         private float speed;
         private float health;
         private float fireCooldown;
+        private float damage;
 
         public TankModel(TankScriptableObject tankScriptableObject)
         {
             speed = tankScriptableObject.MoveSpeed;
             health = tankScriptableObject.Health;
             fireCooldown = tankScriptableObject.FireCooldown;
+            damage = tankScriptableObject.Damage;
         }
 
         public float Speed
@@ -28,6 +30,10 @@ namespace PlayerTank
         public float FireCooldown
         {
             get => fireCooldown;
+        }
+        public float Damage
+        {
+            get => damage;
         }
     }
 }

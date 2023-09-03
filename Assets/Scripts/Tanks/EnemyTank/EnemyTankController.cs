@@ -15,7 +15,9 @@ namespace EnemyTank
             enemyTankView = GameObject.Instantiate<EnemyTankView>(view);
             enemyTankView.SetController(this);
             enemyTankView.transform.position = position;
+
             navMeshAgent = enemyTankView.NavMeshAgent;
+            navMeshAgent.speed = enemyTankModel.Speed;
         }
 
         public void StartPatrol()
@@ -29,6 +31,15 @@ namespace EnemyTank
                 {
                     navMeshAgent.SetDestination(hit.position);
                 }
+            }
+        }
+
+        public void TakeDamage(float damage)
+        {
+            enemyTankModel.Health -= damage;
+            if (enemyTankModel.Health <= 0)
+            {
+                GameObject.Destroy(enemyTankView.gameObject);
             }
         }
     }

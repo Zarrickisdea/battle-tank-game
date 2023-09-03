@@ -10,6 +10,7 @@ namespace ScriptableObjects.Tanks
         [SerializeField] private TankView tankView;
         [SerializeField] private float moveSpeed;
         [SerializeField] private float health;
+        [SerializeField] private float damage;
         [SerializeField] private float fireCooldown;
 
         public TankType TankType => tankType;
@@ -17,6 +18,7 @@ namespace ScriptableObjects.Tanks
         public float MoveSpeed => moveSpeed;
         public float Health => health;
         public float FireCooldown => fireCooldown;
+        public float Damage => damage;
 
     }
 }

@@ -22,5 +22,10 @@ namespace EnemyTank
         {
             enemyTankController.StartPatrol();
         }
+
+        public void TakeDamage(float damage)
+        {
+            enemyTankController.TakeDamage(damage);
+        }
     }
 }

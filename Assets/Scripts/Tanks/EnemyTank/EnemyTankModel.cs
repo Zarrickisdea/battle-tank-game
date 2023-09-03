@@ -10,7 +10,11 @@ namespace EnemyTank
         private float patrolRadius;
 
         public float Speed { get => speed; }
-        public float Health { get => health; }
+        public float Health 
+        { 
+            get => health; 
+            set => health = value;
+        }
         public float Damage { get => damage; }
         public float PatrolRadius { get => patrolRadius; }
 

@@ -6,21 +6,21 @@ namespace Bullet
     public class BulletModel
     {
         private float speed;
-        private float damage;
         private float lifeTime;
         private GameObject explosion;
-        public BulletModel(BulletScriptableObject bulletScriptableObject)
+        private float damage;
+        public BulletModel(BulletScriptableObject bulletScriptableObject, float damage)
         {
             speed = bulletScriptableObject.Speed;
-            damage = bulletScriptableObject.Damage;
             lifeTime = bulletScriptableObject.LifeTime;
             explosion = bulletScriptableObject.Explosion;
+            this.damage = damage;
         }
 
         public float Speed => speed;
-        public float Damage => damage;
         public float LifeTime => lifeTime;
         public GameObject Explosion => explosion;
+        public float Damage => damage;
 
     }
 }
