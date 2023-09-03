@@ -24,7 +24,7 @@ public class TankSpawner : MonoBehaviour
 
     private void SetCamera(TankController tankController)
     {
-        virtualCamera.Follow = tankController.GetTankView();
+        virtualCamera.Follow = tankController.GetTankViewTransform();
     }
 
     private TankScriptableObject GetRandomTank()

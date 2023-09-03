@@ -1,10 +1,17 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace EnemyTank
 {   
     public class EnemyTankView : MonoBehaviour
     {
+        [SerializeField] private NavMeshAgent navMeshAgent;
         private EnemyTankController enemyTankController;
+
+        public NavMeshAgent NavMeshAgent
+        {
+            get => navMeshAgent;
+        }
 
         public void SetController(EnemyTankController controller)
         {
@@ -13,10 +20,7 @@ namespace EnemyTank
 
         public void Update()
         {
-            if (enemyTankController != null)
-            {
-                enemyTankController.StartPatrol();
-            }
+            enemyTankController.StartPatrol();
         }
     }
 }

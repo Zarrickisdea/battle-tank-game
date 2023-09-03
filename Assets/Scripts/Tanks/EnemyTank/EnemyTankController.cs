@@ -15,17 +15,17 @@ namespace EnemyTank
             enemyTankView = GameObject.Instantiate<EnemyTankView>(view);
             enemyTankView.SetController(this);
             enemyTankView.transform.position = position;
-            navMeshAgent = enemyTankView.gameObject.GetComponent<NavMeshAgent>();
+            navMeshAgent = enemyTankView.NavMeshAgent;
         }
 
         public void StartPatrol()
         {
             if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
             {
-                Vector3 randomPoint = Random.insideUnitSphere * 25f;
+                Vector3 randomPoint = Random.insideUnitSphere * enemyTankModel.PatrolRadius;
 
                 NavMeshHit hit;
-                if (NavMesh.SamplePosition(randomPoint, out hit, 25f, NavMesh.AllAreas))
+                if (NavMesh.SamplePosition(randomPoint, out hit, enemyTankModel.PatrolRadius, NavMesh.AllAreas))
                 {
                     navMeshAgent.SetDestination(hit.position);
                 }

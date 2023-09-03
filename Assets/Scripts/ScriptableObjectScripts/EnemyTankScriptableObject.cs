@@ -9,11 +9,13 @@ namespace ScriptableObjects.EnemyTank
         [SerializeField] private float speed;
         [SerializeField] private float health;
         [SerializeField] private float damage;
+        [SerializeField] private float patrolRadius;
         [SerializeField] private EnemyTankView enemyTankView;
 
         public float Speed { get => speed; }
         public float Health { get => health; }
         public float Damage { get => damage; }
+        public float PatrolRadius { get => patrolRadius; }
         public EnemyTankView EnemyTankView { get => enemyTankView; }
     }
 }

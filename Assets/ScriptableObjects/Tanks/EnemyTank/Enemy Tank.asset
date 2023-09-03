@@ -15,5 +15,6 @@ MonoBehaviour:
   speed: 5
   health: 5
   damage: 5
+  patrolRadius: 30
   enemyTankView: {fileID: -420402713869524110, guid: 0809fd013d6a80849826902c5878ef4d,
     type: 3}
