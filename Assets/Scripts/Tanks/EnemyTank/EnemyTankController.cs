@@ -8,6 +8,7 @@ namespace EnemyTank
         private EnemyTankView enemyTankView;
         private EnemyTankModel enemyTankModel;
         private NavMeshAgent navMeshAgent;
+        public EnemyTankView EnemyTankView { get => enemyTankView; }
 
         public EnemyTankController(EnemyTankView view, EnemyTankModel model, Vector3 position)
         {
@@ -39,6 +40,7 @@ namespace EnemyTank
             enemyTankModel.Health -= damage;
             if (enemyTankModel.Health <= 0)
             {
+                EnemyTankSpawner.Instance.RemoveFromList(enemyTankView);
                 GameObject.Destroy(enemyTankView.gameObject);
             }
         }
