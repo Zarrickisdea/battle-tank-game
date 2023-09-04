@@ -1,4 +1,3 @@
-using UnityEditor.SceneTemplate;
 using UnityEngine;
 
 namespace Bullet
@@ -23,11 +22,6 @@ namespace Bullet
         public BulletModel GetBulletModel()
         {
             return bulletModel;
-        }
-
-        public BulletView GetBulletView()
-        {
-            return bulletView;
         }
 
         public void DestroyBullet()

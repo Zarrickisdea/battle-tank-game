@@ -1,4 +1,3 @@
-using Bullet;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,11 +21,11 @@ namespace PlayerTank
 
         private void FixedUpdate()
         {
-            tankController.Rotate();
+            tankController.Look();
             tankController.Move();
         }
 
-        public void InputHandler(InputAction.CallbackContext context)
+        private void InputHandler(InputAction.CallbackContext context)
         {
             tankController.InputHandler(context);
         }

@@ -1,12 +1,14 @@
 using UnityEngine;
 using PlayerTank;
+using EnemyTank;
 
 namespace Bullet
 {
     public class BulletView : MonoBehaviour
     {
-        private BulletController bulletController;
         [SerializeField] private Rigidbody rb;
+
+        private BulletController bulletController;
         private float bulletLife;
         private GameObject explosion;
 
@@ -33,10 +35,11 @@ namespace Bullet
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.GetComponent<TankView>() == null)
+            if (collision.gameObject.GetComponent<EnemyTankView>() != null)
             {
-                bulletController.DestroyBullet();
+                collision.gameObject.GetComponent<EnemyTankView>().TakeDamage(bulletController.GetBulletModel().Damage);
             }
+            bulletController.DestroyBullet();
         }
 
         public void Explode()

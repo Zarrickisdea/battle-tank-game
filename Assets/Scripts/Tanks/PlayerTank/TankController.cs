@@ -9,7 +9,9 @@ namespace PlayerTank
         private TankView tankView;
         private TankModel tankModel;
 
-        private Vector2 moveVector;
+        private bool moveVector;
+        private Vector2 lookVector;
+        private Vector3 currentVelocity;
         private bool canFire = true;
 
         public TankController(TankView view, TankModel model)
@@ -23,31 +25,46 @@ namespace PlayerTank
         {
             if (context.action.name == "Move")
             {
-                moveVector = context.ReadValue<Vector2>();
+                moveVector = context.ReadValue<float>() > 0.5;
             }
             else if (context.action.name == "Fire" && canFire)
             {
-                Fire();
+                Fire(tankModel.Damage);
+            }
+            else if (context.action.name == "Look")
+            {
+                lookVector = context.ReadValue<Vector2>();
+            }
+        }
+
+        public void Look()
+        {
+            if (lookVector != Vector2.zero)
+            {
+                Vector3 lookDirection = new Vector3(-lookVector.x, 0, -lookVector.y);
+                tankView.transform.rotation = Quaternion.LookRotation(lookDirection);
             }
         }
 
         public void Move()
         {
-            tankView.Rb.velocity = new Vector3(-moveVector.x, 0, -moveVector.y) * tankModel.Speed;
-        }
-
-        public void Rotate()
-        {
-            if (moveVector != Vector2.zero)
+            Vector3 moveDirection = Quaternion.Euler(0, tankView.Rb.transform.rotation.eulerAngles.y, 0) * new Vector3(0, 0, 1);
+            if (moveVector)
             {
-                tankView.transform.rotation = Quaternion.LookRotation(new Vector3(-moveVector.x, 0, -moveVector.y));
+                tankView.Rb.velocity = Vector3.Lerp(tankView.Rb.velocity, moveDirection * tankModel.Speed, tankModel.Speed * Time.deltaTime);
+                currentVelocity = tankView.Rb.velocity;
+            }
+            else
+            {
+                tankView.Rb.velocity = Vector3.Lerp(tankView.Rb.velocity, Vector3.zero, tankModel.Speed * Time.deltaTime);
+                currentVelocity = tankView.Rb.velocity;
             }
         }
 
-        public void Fire()
+        public void Fire(float damage)
         {
             BulletSpawner bulletSpawner = tankView.BulletSpawner;
-            BulletController bullet = bulletSpawner.SpawnBullet(bulletSpawner.transform);
+            BulletController bullet = bulletSpawner.SpawnBullet(bulletSpawner.transform, damage);
 
             canFire = false;
             tankView.StartCoroutine(FireCooldown());
@@ -59,7 +76,7 @@ namespace PlayerTank
             canFire = true;
         }
 
-        public Transform GetTankView()
+        public Transform GetTankViewTransform()
         {
             return tankView.transform;
         }
