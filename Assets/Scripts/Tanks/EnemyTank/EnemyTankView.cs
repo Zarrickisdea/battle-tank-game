@@ -13,14 +13,14 @@ namespace EnemyTank
             get => navMeshAgent;
         }
 
+        private void Update()
+        {
+            enemyTankController.StartPatrol();
+        }
+
         public void SetController(EnemyTankController controller)
         {
             enemyTankController = controller;
-        }
-
-        public void Update()
-        {
-            enemyTankController.StartPatrol();
         }
 
         public void TakeDamage(float damage)

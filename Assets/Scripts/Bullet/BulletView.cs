@@ -6,8 +6,9 @@ namespace Bullet
 {
     public class BulletView : MonoBehaviour
     {
-        private BulletController bulletController;
         [SerializeField] private Rigidbody rb;
+
+        private BulletController bulletController;
         private float bulletLife;
         private GameObject explosion;
 
