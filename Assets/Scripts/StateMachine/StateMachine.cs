@@ -1,12 +1,15 @@
 using UnityEngine;
-
-public class StateMachine : MonoBehaviour
+public class StateMachine
 {
-    private BaseState currentState;
+    public EnemyState currentState { get; set; }
 
-    public BaseState CurrentState { get => currentState; set => currentState = value; }
+    public void Initialize(EnemyState startingState)
+    {
+        currentState = startingState;
+        currentState.Enter();
+    }
 
-    public void ChangeState(BaseState newState)
+    public void ChangeState(EnemyState newState)
     {
         if (currentState != null)
         {
@@ -15,29 +18,5 @@ public class StateMachine : MonoBehaviour
 
         currentState = newState;
         currentState.Enter();
-    }
-
-    private void Update()
-    {
-        if (currentState != null)
-        {
-            currentState.UpdateLogic();
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (currentState != null)
-        {
-            currentState.UpdatePhysics();
-        }
-    }
-
-    private void LateUpdate()
-    {
-        if (currentState != null)
-        {
-            currentState.UpdateState();
-        }
     }
 }
