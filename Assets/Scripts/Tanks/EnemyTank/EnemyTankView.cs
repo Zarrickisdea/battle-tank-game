@@ -6,11 +6,22 @@ namespace EnemyTank
     public class EnemyTankView : MonoBehaviour, IDamageable
     {
         [SerializeField] private NavMeshAgent navMeshAgent;
+        [SerializeField] private Transform turretTransform;
+        [SerializeField] private BulletSpawner bulletSpawner;
         private EnemyTankController enemyTankController;
+        public EnemyTankController EnemyTankController
+        {
+            get => enemyTankController;
+        }
 
         public NavMeshAgent NavMeshAgent
         {
             get => navMeshAgent;
+        }
+
+        public BulletSpawner BulletSpawner
+        {
+            get => bulletSpawner;
         }
 
         #region StateMachine
@@ -45,9 +56,24 @@ namespace EnemyTank
             StateMachine.currentState.UpdatePhysics();
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+            StateMachine.currentState.ResolveCollision(collision);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            StateMachine.currentState.ResolveTriggers(other);
+        }
+
         public void SetController(EnemyTankController controller)
         {
             enemyTankController = controller;
+        }
+
+        public void Fire()
+        {
+            enemyTankController.Fire();
         }
 
         public void TakeDamage(float damage)

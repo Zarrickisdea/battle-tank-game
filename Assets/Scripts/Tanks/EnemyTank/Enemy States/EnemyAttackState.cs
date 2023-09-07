@@ -5,31 +5,35 @@ using EnemyTank;
 
 public class EnemyAttackState : EnemyState
 {
+    private float attackTime;
     public EnemyAttackState(EnemyTankView enemyTankView, StateMachine stateMachine) : base(enemyTankView, stateMachine)
     {
     }
 
     public override void Enter()
     {
-        base.Enter();
-        Debug.Log("EnemyAttackState Enter");
+        enemyTankView.NavMeshAgent.isStopped = true;
+        attackTime = 0f;
+        Debug.Log("EnemyAttackState");
     }
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
-        Debug.Log("EnemyAttackState Update");
+        attackTime += Time.deltaTime;
+        if (attackTime >= 1f)
+        {
+            enemyTankView.EnemyTankController.Fire();
+            enemyStateMachine.ChangeState(enemyTankView.EnemyPatrolState);
+        }
     }
 
     public override void UpdatePhysics()
     {
-        base.UpdatePhysics();
-        Debug.Log("EnemyAttackState UpdatePhysics");
+        enemyTankView.EnemyTankController.RotateTurret(playerTankView.transform.position);
     }
 
     public override void Exit()
     {
-        base.Exit();
-        Debug.Log("EnemyAttackState Exit");
+        enemyTankView.NavMeshAgent.isStopped = false;
     }
 }

@@ -3,15 +3,22 @@ using Cinemachine;
 using ScriptableObjects.Tanks;
 using PlayerTank;
 
-public class TankSpawner : MonoBehaviour
+public class TankSpawner : GenericSingleton<TankSpawner>
 {
     [SerializeField] private TankListScriptableObject tankList;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    private TankView tankView;
+
+    public TankView GetPlayerTankView()
+    {
+        return tankView;
+    }
 
     private void Start()
     {
         TankController playerTankController = SpawnTank();
         SetCamera(playerTankController);
+        tankView = playerTankController.GetTankView();
     }
 
     private TankController SpawnTank()

@@ -5,31 +5,32 @@ using EnemyTank;
 
 public class EnemyChaseState : EnemyState
 {
+    private float chaseTime;
     public EnemyChaseState(EnemyTankView enemyTankView, StateMachine stateMachine) : base(enemyTankView, stateMachine)
     {
     }
 
     public override void Enter()
     {
-        base.Enter();
-        Debug.Log("EnemyChaseState Enter");
+        chaseTime = 0f;
     }
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
-        Debug.Log("EnemyChaseState Update");
+        chaseTime += Time.deltaTime;
+        if (chaseTime >= 5f)
+        {
+            enemyStateMachine.ChangeState(enemyTankView.EnemyAttackState);
+        }
     }
 
     public override void UpdatePhysics()
     {
-        base.UpdatePhysics();
-        Debug.Log("EnemyChaseState UpdatePhysics");
+        enemyTankView.EnemyTankController.StartChase(playerTankView.transform);
     }
 
     public override void Exit()
     {
-        base.Exit();
-        Debug.Log("EnemyChaseState Exit");
+        chaseTime = 0f;
     }
 }

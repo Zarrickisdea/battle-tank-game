@@ -8,6 +8,7 @@ namespace EnemyTank
         private float health;
         private float damage;
         private float patrolRadius;
+        private float rotationSpeed = 3f;
 
         public float Speed { get => speed; }
         public float Health 
@@ -17,6 +18,8 @@ namespace EnemyTank
         }
         public float Damage { get => damage; }
         public float PatrolRadius { get => patrolRadius; }
+
+        public float RotationSpeed { get => rotationSpeed; }
 
         public EnemyTankModel(EnemyTankScriptableObject enemyTankScriptableObject)
         {

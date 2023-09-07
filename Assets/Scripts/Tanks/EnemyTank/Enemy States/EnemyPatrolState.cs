@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using EnemyTank;
+using UnityEngine;
 
 public class EnemyPatrolState : EnemyState
 {
@@ -11,25 +9,26 @@ public class EnemyPatrolState : EnemyState
 
     public override void Enter()
     {
-        base.Enter();
-        Debug.Log("EnemyPatrolState Enter");
+        enemyTankView.NavMeshAgent.isStopped = false;
     }
 
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        Debug.Log("EnemyPatrolState Update");
     }
 
     public override void UpdatePhysics()
     {
-        base.UpdatePhysics();
-        Debug.Log("EnemyPatrolState UpdatePhysics");
+        enemyTankView.EnemyTankController.StartPatrol();
+    }
+
+    public override void ResolveTriggers(Collider collider)
+    {
+        base.ResolveTriggers(collider);
     }
 
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("EnemyPatrolState Exit");
     }
 }
