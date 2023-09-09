@@ -24,6 +24,7 @@ namespace PlayerTank
             tankModel = model;
             tankView = GameObject.Instantiate<TankView>(view);
             tankView.SetTankController(this);
+            tankView.AchievementSystem.Initialize();
         }
 
         public void InputHandler(InputAction.CallbackContext context)

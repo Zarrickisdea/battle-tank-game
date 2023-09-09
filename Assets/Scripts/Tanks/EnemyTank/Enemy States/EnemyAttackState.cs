@@ -14,7 +14,6 @@ public class EnemyAttackState : EnemyState
     {
         enemyTankView.NavMeshAgent.isStopped = true;
         attackTime = 0f;
-        Debug.Log("EnemyAttackState");
     }
 
     public override void UpdateLogic()

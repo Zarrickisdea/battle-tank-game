@@ -3,11 +3,12 @@ using UnityEngine.InputSystem;
 
 namespace PlayerTank
 {
-    public class TankView : MonoBehaviour, IDamageable
+    public class TankView : ObserverSubject, IDamageable
     {
         private TankController tankController;
         [SerializeField] private Rigidbody rb;
         [SerializeField] private BulletSpawner bulletSpawner;
+        [SerializeField] private AchievementSystem achievementSystem;
 
         public Rigidbody Rb
         {
@@ -17,6 +18,11 @@ namespace PlayerTank
         public BulletSpawner BulletSpawner
         {
             get => bulletSpawner;
+        }
+
+        public AchievementSystem AchievementSystem
+        {
+            get => achievementSystem;
         }
 
         private void FixedUpdate()
@@ -37,6 +43,7 @@ namespace PlayerTank
 
         public void CrashDamage()
         {
+            NotifyObservers();
             tankController.CrashDamage();
         }
 
