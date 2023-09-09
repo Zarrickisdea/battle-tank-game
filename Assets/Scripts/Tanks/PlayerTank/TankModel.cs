@@ -25,6 +25,7 @@ namespace PlayerTank
         public float Health
         {
             get => health;
+            set => health = value;
         }
 
         public float FireCooldown

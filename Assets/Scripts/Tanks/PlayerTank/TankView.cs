@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace PlayerTank
 {
-    public class TankView : MonoBehaviour
+    public class TankView : MonoBehaviour, IDamageable
     {
         private TankController tankController;
         [SerializeField] private Rigidbody rb;
@@ -33,6 +33,16 @@ namespace PlayerTank
         public void SetTankController(TankController controller)
         {
             tankController = controller;
+        }
+
+        public void CrashDamage()
+        {
+            tankController.CrashDamage();
+        }
+
+        public void TakeDamage(float damage)
+        {
+            tankController.TakeDamage(damage);
         }
     }
 }

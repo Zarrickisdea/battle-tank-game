@@ -1,3 +1,5 @@
+using Bullet;
+using PlayerTank;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -33,6 +35,24 @@ namespace EnemyTank
                     navMeshAgent.SetDestination(hit.position);
                 }
             }
+        }
+
+        public void StartChase(Transform target)
+        {
+            navMeshAgent.SetDestination(target.position);
+        }
+
+        public void RotateTurret(Vector3 position)
+        {
+            Vector3 direction = (position - enemyTankView.transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            enemyTankView.transform.rotation = Quaternion.Slerp(enemyTankView.transform.rotation, lookRotation, Time.deltaTime * enemyTankModel.RotationSpeed);
+        }
+
+        public void Fire()
+        {
+            BulletSpawner bulletSpawner = enemyTankView.BulletSpawner;
+            BulletController bullet = bulletSpawner.SpawnBullet(bulletSpawner.transform, enemyTankModel.Damage);
         }
 
         public void TakeDamage(float damage)

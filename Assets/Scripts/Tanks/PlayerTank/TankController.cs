@@ -9,6 +9,11 @@ namespace PlayerTank
         private TankView tankView;
         private TankModel tankModel;
 
+        public TankView GetTankView()
+        {
+            return tankView;
+        }
+
         private bool moveVector;
         private Vector2 lookVector;
         private Vector3 currentVelocity;
@@ -74,6 +79,24 @@ namespace PlayerTank
         {
             yield return new WaitForSeconds(tankModel.FireCooldown);
             canFire = true;
+        }
+
+        public void TakeDamage(float damage)
+        {
+            tankModel.Health -= damage;
+            if (tankModel.Health <= 0)
+            {
+                GameObject.Destroy(tankView.gameObject);
+            }
+        }
+
+        public void CrashDamage()
+        {
+            tankModel.Health -= 10;
+            if (tankModel.Health <= 0)
+            {
+                GameObject.Destroy(tankView.gameObject);
+            }
         }
 
         public Transform GetTankViewTransform()

@@ -35,12 +35,21 @@ namespace Bullet
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.GetComponent<EnemyTankView>() != null)
+            EnemyTankView enemyTankView = collision.gameObject.GetComponent<EnemyTankView>();
+            TankView tankView = collision.gameObject.GetComponent<TankView>();
+
+            if (enemyTankView != null)
             {
-                collision.gameObject.GetComponent<EnemyTankView>().TakeDamage(bulletController.GetBulletModel().Damage);
+                enemyTankView.TakeDamage(bulletController.GetBulletModel().Damage);
             }
+            else if (tankView != null)
+            {
+                tankView.TakeDamage(bulletController.GetBulletModel().Damage);
+            }
+
             bulletController.DestroyBullet();
         }
+
 
         public void Explode()
         {
