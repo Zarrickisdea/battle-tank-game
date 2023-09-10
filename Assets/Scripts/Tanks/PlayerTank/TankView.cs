@@ -41,7 +41,7 @@ namespace PlayerTank
         private void LateUpdate()
         {
             healthValue.UpdateValue(tankController.GetHealth());
-            achievementSystem.transform.rotation = Quaternion.Euler(0, 220, 0);
+            achievementSystem.transform.rotation = Quaternion.Euler(0, 200, 0);
             healthBar.rotation = Quaternion.Euler(0, 220, 0);
         }
 
