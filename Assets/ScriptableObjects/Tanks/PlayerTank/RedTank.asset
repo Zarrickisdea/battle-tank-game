@@ -18,4 +18,4 @@ MonoBehaviour:
   moveSpeed: 12
   health: 250
   damage: 25
-  fireCooldown: 1
+  fireCooldown: 3

@@ -91,15 +91,6 @@ namespace PlayerTank
             }
         }
 
-        public void CrashDamage()
-        {
-            tankModel.Health -= 10;
-            if (tankModel.Health <= 0)
-            {
-                GameObject.Destroy(tankView.gameObject);
-            }
-        }
-
         public float GetHealth()
         {
             return tankModel.Health;
