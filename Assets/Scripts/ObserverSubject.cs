@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObserverSubject : MonoBehaviour
+public abstract class ObserverSubject : MonoBehaviour
 {
     private List<IObserver> observers = new List<IObserver>();
 

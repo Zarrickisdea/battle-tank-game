@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using EnemyTank;
 
@@ -12,6 +10,7 @@ public class EnemyChaseState : EnemyState
 
     public override void Enter()
     {
+        base.Enter();
         chaseTime = 0f;
     }
 
@@ -26,11 +25,15 @@ public class EnemyChaseState : EnemyState
 
     public override void UpdatePhysics()
     {
-        enemyTankView.EnemyTankController.StartChase(playerTankView.transform);
+        if (playerTankView != null)
+        {
+            enemyTankView.EnemyTankController.StartChase(playerTankView.transform);
+        }
     }
 
     public override void Exit()
     {
+        base.Exit();
         chaseTime = 0f;
     }
 }

@@ -10,12 +10,14 @@ public class EnemyIdleState : EnemyState
 
     public override void Enter()
     {
+        base.Enter();
         idleTime = 0f;
         enemyTankView.NavMeshAgent.isStopped = true;
     }
 
     public override void UpdateLogic()
     {
+        base.UpdateLogic();
         idleTime += Time.deltaTime;
         if (idleTime >= 2f)
         {
@@ -30,6 +32,7 @@ public class EnemyIdleState : EnemyState
 
     public override void Exit()
     {
+        base.Exit();
         idleTime = 0f;
     }
 }

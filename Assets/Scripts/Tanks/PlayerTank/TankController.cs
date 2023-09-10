@@ -100,6 +100,11 @@ namespace PlayerTank
             }
         }
 
+        public float GetHealth()
+        {
+            return tankModel.Health;
+        }
+
         public Transform GetTankViewTransform()
         {
             return tankView.transform;

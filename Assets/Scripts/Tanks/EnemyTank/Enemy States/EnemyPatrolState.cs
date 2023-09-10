@@ -9,16 +9,19 @@ public class EnemyPatrolState : EnemyState
 
     public override void Enter()
     {
+        base.Enter();
         enemyTankView.NavMeshAgent.isStopped = false;
     }
 
     public override void UpdateLogic()
     {
+        base .UpdateLogic();
         base.UpdateLogic();
     }
 
     public override void UpdatePhysics()
     {
+        base.UpdatePhysics();
         enemyTankView.EnemyTankController.StartPatrol();
     }
 

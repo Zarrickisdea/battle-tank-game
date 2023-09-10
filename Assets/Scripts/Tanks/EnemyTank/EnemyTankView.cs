@@ -8,6 +8,9 @@ namespace EnemyTank
         [SerializeField] private NavMeshAgent navMeshAgent;
         [SerializeField] private Transform turretTransform;
         [SerializeField] private BulletSpawner bulletSpawner;
+        [SerializeField] private Transform healthBar;
+        [SerializeField] private FillValueNumber healthValue;
+
         private EnemyTankController enemyTankController;
         public EnemyTankController EnemyTankController
         {
@@ -22,6 +25,16 @@ namespace EnemyTank
         public BulletSpawner BulletSpawner
         {
             get => bulletSpawner;
+        }
+
+        public Transform HealthBar
+        {
+            get => healthBar;
+        }
+
+        public FillValueNumber HealthValue
+        {
+            get => healthValue;
         }
 
         #region StateMachine
@@ -44,6 +57,7 @@ namespace EnemyTank
         private void Start()
         {
             StateMachine.Initialize(EnemyIdleState);
+            healthValue.Initialize(enemyTankController.GetHealth());
         }
 
         private void Update()
@@ -54,6 +68,11 @@ namespace EnemyTank
         private void FixedUpdate()
         {
             StateMachine.currentState.UpdatePhysics();
+        }
+
+        private void LateUpdate()
+        {
+            StateMachine.currentState.UpdateUI();
         }
 
         private void OnCollisionEnter(Collision collision)

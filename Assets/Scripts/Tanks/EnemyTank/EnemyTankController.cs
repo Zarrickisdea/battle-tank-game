@@ -64,5 +64,10 @@ namespace EnemyTank
                 GameObject.Destroy(enemyTankView.gameObject);
             }
         }
+
+        public float GetHealth()
+        {
+            return enemyTankModel.Health;
+        }
     }
 }

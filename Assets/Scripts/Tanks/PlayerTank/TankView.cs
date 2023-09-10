@@ -9,6 +9,8 @@ namespace PlayerTank
         [SerializeField] private Rigidbody rb;
         [SerializeField] private BulletSpawner bulletSpawner;
         [SerializeField] private AchievementSystem achievementSystem;
+        [SerializeField] private Transform healthBar;
+        [SerializeField] private FillValueNumber healthValue;
 
         public Rigidbody Rb
         {
@@ -25,10 +27,21 @@ namespace PlayerTank
             get => achievementSystem;
         }
 
+        private void Start()
+        {
+            healthValue.Initialize(tankController.GetHealth());
+        }
+
         private void FixedUpdate()
         {
             tankController.Look();
             tankController.Move();
+        }
+
+        private void LateUpdate()
+        {
+            healthValue.UpdateValue(tankController.GetHealth());
+            healthBar.rotation = Quaternion.Euler(0, 220, 0);
         }
 
         private void InputHandler(InputAction.CallbackContext context)

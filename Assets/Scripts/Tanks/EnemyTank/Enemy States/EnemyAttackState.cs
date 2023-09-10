@@ -28,7 +28,10 @@ public class EnemyAttackState : EnemyState
 
     public override void UpdatePhysics()
     {
-        enemyTankView.EnemyTankController.RotateTurret(playerTankView.transform.position);
+        if (playerTankView != null)
+        {
+            enemyTankView.EnemyTankController.RotateTurret(playerTankView.transform.position);
+        }
     }
 
     public override void Exit()

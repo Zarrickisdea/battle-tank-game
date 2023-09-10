@@ -1,6 +1,4 @@
 using PlayerTank;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AchievementSystem : MonoBehaviour, IObserver

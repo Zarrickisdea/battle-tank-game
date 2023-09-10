@@ -1,5 +1,6 @@
 using EnemyTank;
 using PlayerTank;
+using UnityEngine;
 
 public abstract class EnemyState
 {
@@ -32,6 +33,12 @@ public abstract class EnemyState
     public virtual void UpdatePhysics()
     {
 
+    }
+
+    public virtual void UpdateUI()
+    {
+        enemyTankView.HealthValue.UpdateValue(enemyTankView.EnemyTankController.GetHealth());
+        enemyTankView.HealthBar.rotation = Quaternion.Euler(0, 220, 0);
     }
 
     public virtual void ResolveCollision(UnityEngine.Collision collision)
