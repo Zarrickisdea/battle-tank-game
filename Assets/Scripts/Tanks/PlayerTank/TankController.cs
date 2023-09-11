@@ -24,6 +24,7 @@ namespace PlayerTank
             tankModel = model;
             tankView = GameObject.Instantiate<TankView>(view);
             tankView.SetTankController(this);
+            tankView.AchievementSystem.Initialize();
         }
 
         public void InputHandler(InputAction.CallbackContext context)
@@ -90,13 +91,9 @@ namespace PlayerTank
             }
         }
 
-        public void CrashDamage()
+        public float GetHealth()
         {
-            tankModel.Health -= 10;
-            if (tankModel.Health <= 0)
-            {
-                GameObject.Destroy(tankView.gameObject);
-            }
+            return tankModel.Health;
         }
 
         public Transform GetTankViewTransform()

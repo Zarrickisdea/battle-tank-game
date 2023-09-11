@@ -80,3 +80,20 @@ The following packages were added:
   com.unity.2d.psdimporter@6.0.7
   com.unity.2d.spriteshape@7.0.7
   com.unity.ext.nunit@1.0.6
+
+=== Sun Sep 10 18:19:20 2023
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.postprocessing from version 2.2.2 to 3.2.2
+  com.unity.textmeshpro from version 2.0.1 to 3.0.6
+
+=== Sun Sep 10 18:19:20 2023
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.postprocessing@3.2.2

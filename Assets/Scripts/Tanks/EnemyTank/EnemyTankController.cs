@@ -1,5 +1,4 @@
 using Bullet;
-using PlayerTank;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -60,9 +59,14 @@ namespace EnemyTank
             enemyTankModel.Health -= damage;
             if (enemyTankModel.Health <= 0)
             {
-                EnemyTankSpawner.Instance.RemoveFromList(enemyTankView);
+                LevelManager.Instance.RemoveEnemyTank(enemyTankView);
                 GameObject.Destroy(enemyTankView.gameObject);
             }
+        }
+
+        public float GetHealth()
+        {
+            return enemyTankModel.Health;
         }
     }
 }

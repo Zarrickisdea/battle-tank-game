@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8391aa2aa514eef44923056fd96e066b, type: 3}
   m_Name: Enemy Tank
   m_EditorClassIdentifier: 
-  speed: 5
-  health: 5
-  damage: 5
+  speed: 15
+  health: 120
+  damage: 15
   patrolRadius: 30
+  rotationSpeed: 3
   enemyTankView: {fileID: -420402713869524110, guid: 0809fd013d6a80849826902c5878ef4d,
     type: 3}

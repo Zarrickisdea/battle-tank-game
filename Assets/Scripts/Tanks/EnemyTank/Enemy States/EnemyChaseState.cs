@@ -1,36 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using EnemyTank;
 
-public class EnemyChaseState : EnemyState
+namespace EnemyTank
 {
-    private float chaseTime;
-    public EnemyChaseState(EnemyTankView enemyTankView, StateMachine stateMachine) : base(enemyTankView, stateMachine)
+    public class EnemyChaseState : EnemyState
     {
-    }
-
-    public override void Enter()
-    {
-        chaseTime = 0f;
-    }
-
-    public override void UpdateLogic()
-    {
-        chaseTime += Time.deltaTime;
-        if (chaseTime >= 5f)
+        private float chaseTime;
+        public EnemyChaseState(EnemyTankView enemyTankView, StateMachine stateMachine) : base(enemyTankView, stateMachine)
         {
-            enemyStateMachine.ChangeState(enemyTankView.EnemyAttackState);
         }
-    }
 
-    public override void UpdatePhysics()
-    {
-        enemyTankView.EnemyTankController.StartChase(playerTankView.transform);
-    }
+        public override void Enter()
+        {
+            base.Enter();
+            chaseTime = 0f;
+        }
 
-    public override void Exit()
-    {
-        chaseTime = 0f;
+        public override void UpdateLogic()
+        {
+            chaseTime += Time.deltaTime;
+            if (chaseTime >= 3f)
+            {
+                enemyStateMachine.ChangeState(enemyTankView.EnemyAttackState);
+            }
+        }
+
+        public override void UpdatePhysics()
+        {
+            if (playerTankView != null)
+            {
+                enemyTankView.EnemyTankController.StartChase(playerTankView.transform);
+            }
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+            chaseTime = 0f;
+        }
     }
 }
