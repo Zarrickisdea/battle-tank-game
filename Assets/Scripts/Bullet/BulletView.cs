@@ -56,7 +56,7 @@ namespace Bullet
             GameObject effect = Instantiate(explosion, transform.position, transform.rotation);
             effect.GetComponent<ParticleSystem>().Play();
             Destroy(effect, 1f);
-            Destroy(gameObject);
+            bulletController.Deactivate();
         }
 
         public void SetBulletController(BulletController bulletController)

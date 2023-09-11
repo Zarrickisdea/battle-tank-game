@@ -10,6 +10,10 @@ namespace EnemyTank
         private EnemyTankModel enemyTankModel;
         private NavMeshAgent navMeshAgent;
         public EnemyTankView EnemyTankView { get => enemyTankView; }
+        public float GetHealth()
+        {
+            return enemyTankModel.Health;
+        }
 
         public EnemyTankController(EnemyTankView view, EnemyTankModel model, Vector3 position)
         {
@@ -51,7 +55,7 @@ namespace EnemyTank
         public void Fire()
         {
             BulletSpawner bulletSpawner = enemyTankView.BulletSpawner;
-            BulletController bullet = bulletSpawner.SpawnBullet(bulletSpawner.transform, enemyTankModel.Damage);
+            bulletSpawner.FireBullet(bulletSpawner.transform, enemyTankModel.Damage);
         }
 
         public void TakeDamage(float damage)
@@ -62,11 +66,6 @@ namespace EnemyTank
                 LevelManager.Instance.RemoveEnemyTank(enemyTankView);
                 GameObject.Destroy(enemyTankView.gameObject);
             }
-        }
-
-        public float GetHealth()
-        {
-            return enemyTankModel.Health;
         }
     }
 }

@@ -70,7 +70,7 @@ namespace PlayerTank
         public void Fire(float damage)
         {
             BulletSpawner bulletSpawner = tankView.BulletSpawner;
-            BulletController bullet = bulletSpawner.SpawnBullet(bulletSpawner.transform, damage);
+            bulletSpawner.FireBullet(bulletSpawner.transform, tankModel.Damage);
 
             canFire = false;
             tankView.StartCoroutine(FireCooldown());

@@ -37,6 +37,11 @@ namespace EnemyTank
             get => healthValue;
         }
 
+        public Transform TurretTransform
+        {
+            get => turretTransform;
+        }
+
         #region StateMachine
         public StateMachine StateMachine { get; private set; }
         public EnemyIdleState EnemyIdleState { get; private set; }
