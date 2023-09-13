@@ -36,6 +36,7 @@ namespace PlayerTank
             else if (context.action.name == "Fire" && canFire)
             {
                 Fire(tankModel.Damage);
+                tankView.NotifyObservers(AchievementType.BulletsFired);
             }
             else if (context.action.name == "Look")
             {

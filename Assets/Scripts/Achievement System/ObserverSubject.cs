@@ -15,11 +15,11 @@ public abstract class ObserverSubject : MonoBehaviour
         observers.Remove(observer);
     }
 
-    public void NotifyObservers()
+    public void NotifyObservers(AchievementType achievementType)
     {
         foreach (IObserver observer in observers)
         {
-            observer.OnNotify();
+            observer.OnNotify(achievementType);
         }
     }
 }

@@ -7,33 +7,74 @@ public class AchievementSystem : MonoBehaviour, IObserver
 {
     private TankView tankView;
     private int crashes;
+    private int bulletsFired;
+    private int bulletsHit;
 
     [SerializeField] private TextMeshPro text;
 
     public void Initialize()
     {
         crashes = 0;
+        bulletsFired = 0;
+        bulletsHit = 0;
         text.gameObject.SetActive(false);
         tankView = GetComponentInParent<TankView>();
         tankView.AddObserver(this);
     }
 
-    public void OnNotify()
+    public void OnNotify(AchievementType achievementType)
     {
-        crashes++;
-        switch (crashes)
+        switch(achievementType)
         {
-            case 5:
-                ShowText("5 crashes");
+            case AchievementType.Crashes:
+                crashes++;
+                
+                if (crashes == 5)
+                {
+                    ShowText("5 Crashes!");
+                }
+                else if (crashes == 10)
+                {
+                    ShowText("10 Crashes!");
+                }
+                else if (crashes == 25)
+                {
+                    ShowText("Too Many Crashes!");
+                }
                 break;
 
-            case 15:
-                ShowText("15 crashes");
+            case AchievementType.BulletsFired:
+                bulletsFired++;
+                if (bulletsFired == 5)
+                {
+                    ShowText("5 Bullets Fired!");
+                }
+                else if (bulletsFired == 10)
+                {
+                    ShowText("10 Bullets Fired!");
+                }
+                else if (bulletsFired == 25)
+                {
+                    ShowText("25 Bullets Fired!");
+                }
                 break;
 
-            case 30:
-                ShowText("30 crashes");
+            case AchievementType.BulletsHit:
+                bulletsHit++;
+                if (bulletsHit == 1)
+                {
+                    ShowText("First Bullet Hit!");
+                }
+                else if (bulletsHit == 5)
+                {
+                    ShowText("5 Bullets Hit!");
+                }
+                else if (bulletsHit == 10)
+                {
+                    ShowText("10 Bullets Hit!");
+                }
                 break;
+
         }
     }
 
@@ -49,4 +90,11 @@ public class AchievementSystem : MonoBehaviour, IObserver
         yield return new WaitForSeconds(3);
         text.gameObject.SetActive(false);
     }
+}
+
+public enum AchievementType
+{
+    Crashes,
+    BulletsFired,
+    BulletsHit,
 }

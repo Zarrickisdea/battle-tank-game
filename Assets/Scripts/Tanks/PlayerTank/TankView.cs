@@ -58,12 +58,13 @@ namespace PlayerTank
 
         public void CrashDamage()
         {
-            NotifyObservers();
+            NotifyObservers(AchievementType.Crashes);
             tankController.TakeDamage(10);
         }
 
         public void TakeDamage(float damage)
         {
+            NotifyObservers(AchievementType.BulletsHit);
             tankController.TakeDamage(damage);
         }
     }
