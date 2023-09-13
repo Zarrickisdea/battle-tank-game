@@ -12,7 +12,7 @@ public class TankSpawner : MonoBehaviour
     {
         TankController playerTankController = SpawnTank();
         SetCamera(playerTankController);
-        LevelManager.Instance.SetPlayerTank(playerTankController.GetTankView());
+        LevelManager.Instance.PlayerTank = playerTankController.GetTankView();
     }
 
     private TankController SpawnTank()

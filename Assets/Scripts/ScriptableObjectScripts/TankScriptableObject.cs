@@ -12,6 +12,7 @@ namespace ScriptableObjects.Tanks
         [SerializeField] private float health;
         [SerializeField] private float damage;
         [SerializeField] private float fireCooldown;
+        [SerializeField] private AudioClip shootSound;
 
         public TankType TankType => tankType;
         public TankView TankView => tankView;
@@ -19,6 +20,7 @@ namespace ScriptableObjects.Tanks
         public float Health => health;
         public float FireCooldown => fireCooldown;
         public float Damage => damage;
+        public AudioClip ShootSound => shootSound;
 
     }
 }

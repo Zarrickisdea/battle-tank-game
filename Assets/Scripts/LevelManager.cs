@@ -10,13 +10,9 @@ public class LevelManager : GenericSingleton<LevelManager>
     [SerializeField] private float destroyTime;
     [SerializeField] private GameObject explosionPrefab;
 
-    private TankView playerTank;
     private List<EnemyTankView> enemyTanks = new List<EnemyTankView>();
 
-    public TankView PlayerTank
-    {
-        get => playerTank;
-    }
+    public TankView PlayerTank { get; set; }
 
     private void DestroyLevel()
     {
@@ -37,11 +33,6 @@ public class LevelManager : GenericSingleton<LevelManager>
 
             yield return new WaitForSeconds(destroyTime);
         }
-    }
-
-    public void SetPlayerTank(TankView tankView)
-    {
-        playerTank = tankView;
     }
 
     public void AddEnemyTank(EnemyTankView enemyTankView)

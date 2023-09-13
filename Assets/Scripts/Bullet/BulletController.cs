@@ -6,15 +6,21 @@ namespace Bullet
     {
         private BulletModel bulletModel;
         private BulletView bulletView;
-        public BulletController(BulletView view, BulletModel model, Transform spawnTransform)
+        private BulletSpawner bulletSpawner;
+
+        public BulletView GetBulletView()
         {
-            bulletModel = model;
-            bulletView = GameObject.Instantiate<BulletView>(view, spawnTransform.position, spawnTransform.rotation);
-            bulletView.SetBulletController(this);
-            Fire();
+            return bulletView;
         }
 
-        private void Fire()
+        public BulletController(BulletView view, BulletModel model)
+        {
+            bulletModel = model;
+            bulletView = GameObject.Instantiate<BulletView>(view);
+            bulletView.SetBulletController(this);
+        }
+
+        public void Fire()
         {
             bulletView.Rb.AddForce(bulletView.transform.forward * bulletModel.Speed, ForceMode.Impulse);
         }
@@ -27,6 +33,22 @@ namespace Bullet
         public void DestroyBullet()
         {
             bulletView.Explode();
+        }
+
+        public void Deactivate()
+        {
+            bulletView.gameObject.SetActive(false);
+            bulletSpawner.AddBackToPool(this);
+        }
+
+        public void SetDamage(float damage)
+        {
+            bulletModel.Damage = damage;
+        }
+
+        public void SetBulletSpawner(BulletSpawner bulletSpawner)
+        {
+            this.bulletSpawner = bulletSpawner;
         }
     }
 }
