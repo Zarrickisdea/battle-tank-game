@@ -35,7 +35,7 @@ namespace PlayerTank
             }
             else if (context.action.name == "Fire" && canFire)
             {
-                Fire(tankModel.Damage);
+                Fire();
                 tankView.NotifyObservers(AchievementType.BulletsFired);
             }
             else if (context.action.name == "Look")
@@ -76,10 +76,10 @@ namespace PlayerTank
             }
         }
 
-        public void Fire(float damage)
+        public void Fire()
         {
             BulletSpawner bulletSpawner = tankView.BulletSpawner;
-            bulletSpawner.FireBullet(bulletSpawner.transform, tankModel.Damage);
+            bulletSpawner.FireBullet(tankView.TurretTransform, tankModel.Damage);
 
             canFire = false;
             tankView.StartCoroutine(FireCooldown());

@@ -54,7 +54,7 @@ namespace EnemyTank
         public void Fire()
         {
             BulletSpawner bulletSpawner = enemyTankView.BulletSpawner;
-            bulletSpawner.FireBullet(bulletSpawner.transform, enemyTankModel.Damage);
+            bulletSpawner.FireBullet(enemyTankView.TurretTransform, enemyTankModel.Damage);
         }
 
         public void TakeDamage(float damage)

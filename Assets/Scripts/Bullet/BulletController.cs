@@ -39,7 +39,6 @@ namespace Bullet
         public void Deactivate()
         {
             bulletView.gameObject.SetActive(false);
-            bulletSpawner.AddBackToPool(this);
         }
 
         public void SetDamage(float damage)

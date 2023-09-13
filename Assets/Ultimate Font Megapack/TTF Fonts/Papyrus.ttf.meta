@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 57bfed29d277f3f45a637387f8c1b0cd
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Papyrus
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c3139efee8e92d343ba051224bb241e1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

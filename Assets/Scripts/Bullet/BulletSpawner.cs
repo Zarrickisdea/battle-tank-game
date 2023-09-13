@@ -2,6 +2,7 @@ using UnityEngine;
 using Bullet;
 using ScriptableObjects.Bullets;
 using System.Collections.Generic;
+using PlayerTank;
 
 public class BulletSpawner : MonoBehaviour
 {
@@ -19,20 +20,26 @@ public class BulletSpawner : MonoBehaviour
     {
         for (int i = 0; i < poolSize; i++)
         {
-            BulletModel bulletModel = new BulletModel(bullet);
-            BulletController bulletController = new BulletController(bullet.BulletView, bulletModel);
-            bulletController.SetBulletSpawner(this);
-            bulletController.Deactivate();
+            BulletController bulletController = GenerateBullet();
             bulletPool.Enqueue(bulletController);
         }
+    }
+
+    private BulletController GenerateBullet()
+    {
+        BulletModel bulletModel = new BulletModel(bullet);
+        BulletController bulletController = new BulletController(bullet.BulletView, bulletModel);
+        bulletController.SetBulletSpawner(this);
+        bulletController.GetBulletView().gameObject.SetActive(false);
+        return bulletController;
     }
 
     public void FireBullet(Transform spawner, float damage)
     {
         BulletController bulletController = GetBulletFromPool();
+        bulletController.SetDamage(damage);
         bulletController.GetBulletView().transform.position = spawner.position;
         bulletController.GetBulletView().transform.rotation = spawner.rotation;
-        bulletController.SetDamage(damage);
         bulletController.GetBulletView().gameObject.SetActive(true);
         bulletController.Fire();
     }
@@ -45,14 +52,8 @@ public class BulletSpawner : MonoBehaviour
         }
         else
         {
-            BulletModel bulletModel = new BulletModel(bullet);
-            BulletController newBulletController = new BulletController(bullet.BulletView, bulletModel);
-            return newBulletController;
+            BulletController newbulletController = GenerateBullet();
+            return newbulletController;
         }
-    }
-
-    public void AddBackToPool(BulletController bulletController)
-    {
-        bulletPool.Enqueue(bulletController);
     }
 }

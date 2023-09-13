@@ -102,6 +102,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 081014b2a35fba44fb8b94951561ba2c, type: 2}
+    - target: {fileID: 7746658664412974790, guid: 96a12b734cd088542a6ff145c4d38d39,
+        type: 3}
+      propertyPath: poolSize
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8468611516120398360, guid: 96a12b734cd088542a6ff145c4d38d39,
         type: 3}
       propertyPath: m_Size.x
@@ -138,9 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a0c3673b152e3428eb3cf3443bc37f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &6150912310486523350 stripped
+--- !u!4 &3495878525782649790 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7409875145518220432, guid: 96a12b734cd088542a6ff145c4d38d39,
+  m_CorrespondingSourceObject: {fileID: 219162322060227320, guid: 96a12b734cd088542a6ff145c4d38d39,
     type: 3}
   m_PrefabInstance: {fileID: 3713574167983708486}
   m_PrefabAsset: {fileID: 0}
@@ -176,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 5995697217496272270}
-  turretTransform: {fileID: 6150912310486523350}
+  turretTransform: {fileID: 3495878525782649790}
   bulletSpawner: {fileID: 6343580679962744704}
   healthBar: {fileID: 9043999350780626390}
   healthValue: {fileID: 1815090901659806873}

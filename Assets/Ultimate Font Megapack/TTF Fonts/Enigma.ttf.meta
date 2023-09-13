@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 2e01f051c6b50df4d8c610897326ddca
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Enigma
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7b01a871903ab6b4a8302e53a14051d8, type: 3}
+  - {fileID: 12800000, guid: 37994e3926da0d841b7c40bf27b373d6, type: 3}
+  - {fileID: 12800000, guid: 3720693b2ef6b2b4a955a1b69e3de908, type: 3}
+  - {fileID: 12800000, guid: 0dfc2e3ddf4b08a4da2594099f526f2c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
