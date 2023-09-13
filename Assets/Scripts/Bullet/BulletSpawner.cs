@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class BulletSpawner : MonoBehaviour
 {
     [SerializeField] private BulletScriptableObject bullet;
-    [SerializeField] private int poolSize = 10;
+    [SerializeField] private int poolSize;
 
     private Queue<BulletController> bulletPool = new Queue<BulletController>();
 
@@ -21,6 +21,7 @@ public class BulletSpawner : MonoBehaviour
         {
             BulletModel bulletModel = new BulletModel(bullet);
             BulletController bulletController = new BulletController(bullet.BulletView, bulletModel);
+            bulletController.SetBulletSpawner(this);
             bulletController.Deactivate();
             bulletPool.Enqueue(bulletController);
         }
@@ -48,5 +49,10 @@ public class BulletSpawner : MonoBehaviour
             BulletController newBulletController = new BulletController(bullet.BulletView, bulletModel);
             return newBulletController;
         }
+    }
+
+    public void AddBackToPool(BulletController bulletController)
+    {
+        bulletPool.Enqueue(bulletController);
     }
 }

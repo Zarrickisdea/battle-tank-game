@@ -1,4 +1,5 @@
 using ScriptableObjects.Tanks;
+using UnityEngine;
 
 namespace PlayerTank
 {
@@ -7,6 +8,7 @@ namespace PlayerTank
         private float speed;
         private float fireCooldown;
         private float damage;
+        private AudioClip shootSound;
         public float Health { get; set; }
 
         public TankModel(TankScriptableObject tankScriptableObject)
@@ -15,6 +17,7 @@ namespace PlayerTank
             Health = tankScriptableObject.Health;
             fireCooldown = tankScriptableObject.FireCooldown;
             damage = tankScriptableObject.Damage;
+            shootSound = tankScriptableObject.ShootSound;
         }
 
         public float Speed

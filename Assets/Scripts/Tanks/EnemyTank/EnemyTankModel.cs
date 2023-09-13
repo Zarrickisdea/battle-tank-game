@@ -1,4 +1,5 @@
 using ScriptableObjects.EnemyTank;
+using UnityEngine;
 
 namespace EnemyTank
 {
@@ -8,6 +9,7 @@ namespace EnemyTank
         private float damage;
         private float patrolRadius;
         private float rotationSpeed;
+        private AudioClip shootSound;
 
         public float Speed { get => speed; }
         public float Health { get; set; }
@@ -23,6 +25,7 @@ namespace EnemyTank
             damage = enemyTankScriptableObject.Damage;
             patrolRadius = enemyTankScriptableObject.PatrolRadius;
             rotationSpeed = enemyTankScriptableObject.RotationSpeed;
+            shootSound = enemyTankScriptableObject.ShootSound;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace PlayerTank
         [SerializeField] private AchievementSystem achievementSystem;
         [SerializeField] private Transform healthBar;
         [SerializeField] private FillValueNumber healthValue;
+        [SerializeField] private AudioSource audioSource;
 
         public Rigidbody Rb
         {

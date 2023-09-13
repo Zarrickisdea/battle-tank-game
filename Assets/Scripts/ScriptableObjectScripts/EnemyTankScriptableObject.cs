@@ -11,6 +11,7 @@ namespace ScriptableObjects.EnemyTank
         [SerializeField] private float damage;
         [SerializeField] private float patrolRadius;
         [SerializeField] private float rotationSpeed;
+        [SerializeField] private AudioClip shootSound;
         [SerializeField] private EnemyTankView enemyTankView;
 
         public float Speed { get => speed; }
@@ -18,6 +19,7 @@ namespace ScriptableObjects.EnemyTank
         public float Damage { get => damage; }
         public float PatrolRadius { get => patrolRadius; }
         public float RotationSpeed { get => rotationSpeed; }
+        public AudioClip ShootSound { get => shootSound; }
         public EnemyTankView EnemyTankView { get => enemyTankView; }
     }
 }

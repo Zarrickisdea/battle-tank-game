@@ -6,6 +6,7 @@ namespace Bullet
     {
         private BulletModel bulletModel;
         private BulletView bulletView;
+        private BulletSpawner bulletSpawner;
 
         public BulletView GetBulletView()
         {
@@ -37,11 +38,17 @@ namespace Bullet
         public void Deactivate()
         {
             bulletView.gameObject.SetActive(false);
+            bulletSpawner.AddBackToPool(this);
         }
 
         public void SetDamage(float damage)
         {
             bulletModel.Damage = damage;
+        }
+
+        public void SetBulletSpawner(BulletSpawner bulletSpawner)
+        {
+            this.bulletSpawner = bulletSpawner;
         }
     }
 }
