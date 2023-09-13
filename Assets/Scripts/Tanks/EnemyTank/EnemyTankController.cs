@@ -66,5 +66,10 @@ namespace EnemyTank
                 GameObject.Destroy(enemyTankView.gameObject);
             }
         }
+
+        public float GetCrashForce()
+        {
+            return enemyTankModel.CrashForce;
+        }
     }
 }

@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 6469893994219097381, guid: 96a12b734cd088542a6ff145c4d38d39,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7409875145518193016, guid: 96a12b734cd088542a6ff145c4d38d39,
         type: 3}
       propertyPath: m_Name
@@ -100,22 +105,22 @@ PrefabInstance:
     - target: {fileID: 8468611516120398360, guid: 96a12b734cd088542a6ff145c4d38d39,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.5009022
+      value: 1.5670433
       objectReference: {fileID: 0}
     - target: {fileID: 8468611516120398360, guid: 96a12b734cd088542a6ff145c4d38d39,
         type: 3}
       propertyPath: m_Size.z
-      value: 2.4427664
+      value: 1.9117322
       objectReference: {fileID: 0}
     - target: {fileID: 8468611516120398360, guid: 96a12b734cd088542a6ff145c4d38d39,
         type: 3}
       propertyPath: m_Center.x
-      value: -0.021296322
+      value: 0.00079619884
       objectReference: {fileID: 0}
     - target: {fileID: 8468611516120398360, guid: 96a12b734cd088542a6ff145c4d38d39,
         type: 3}
       propertyPath: m_Center.z
-      value: -0.066037536
+      value: -0.07060778
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7409875145518095978, guid: 96a12b734cd088542a6ff145c4d38d39, type: 3}

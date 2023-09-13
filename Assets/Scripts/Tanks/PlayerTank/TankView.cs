@@ -28,9 +28,15 @@ namespace PlayerTank
             get => achievementSystem;
         }
 
+        public AudioSource AudioSource
+        {
+            get => audioSource;
+        }
+
         private void Start()
         {
             healthValue.Initialize(tankController.GetHealth());
+            audioSource.clip = tankController.GetDriveSound();
         }
 
         private void FixedUpdate()
@@ -54,6 +60,11 @@ namespace PlayerTank
         public void SetTankController(TankController controller)
         {
             tankController = controller;
+        }
+
+        public void ApplyForce(Vector3 force)
+        {
+            tankController.ApplyForce(force);
         }
 
         public void CrashDamage()

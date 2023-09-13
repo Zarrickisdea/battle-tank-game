@@ -48,4 +48,10 @@ public class LevelManager : GenericSingleton<LevelManager>
             DestroyLevel();
         }
     }
+
+    public void RemovePlayerTank()
+    {
+        PlayerTank = null;
+        DestroyLevel();
+    }
 }

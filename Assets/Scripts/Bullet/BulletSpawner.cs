@@ -27,11 +27,11 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
-    public void FireBullet(Transform transform, float damage)
+    public void FireBullet(Transform spawner, float damage)
     {
         BulletController bulletController = GetBulletFromPool();
-        bulletController.GetBulletView().transform.position = transform.position;
-        bulletController.GetBulletView().transform.rotation = transform.rotation;
+        bulletController.GetBulletView().transform.position = spawner.position;
+        bulletController.GetBulletView().transform.rotation = spawner.rotation;
         bulletController.SetDamage(damage);
         bulletController.GetBulletView().gameObject.SetActive(true);
         bulletController.Fire();

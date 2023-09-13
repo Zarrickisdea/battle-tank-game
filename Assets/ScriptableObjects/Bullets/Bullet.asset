@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletView: {fileID: 7960667361139479456, guid: c73a3113377a95d46b58f2213da419f8,
     type: 3}
-  speed: 75
-  damage: 10
+  speed: 100
   lifeTime: 2
   explosion: {fileID: 195792, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
+  shootSound: {fileID: 8300000, guid: 672a9941361ad494a99fba36759eca80, type: 3}

@@ -46,6 +46,7 @@ namespace EnemyTank
         {
             if (collision.gameObject.GetComponent<TankView>())
             {
+                collision.gameObject.GetComponent<TankView>().ApplyForce(enemyTankView.transform.forward * enemyTankView.EnemyTankController.GetCrashForce());
                 collision.gameObject.GetComponent<TankView>().CrashDamage();
             }
         }

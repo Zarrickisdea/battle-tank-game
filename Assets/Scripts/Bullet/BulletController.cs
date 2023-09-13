@@ -23,6 +23,7 @@ namespace Bullet
         public void Fire()
         {
             bulletView.Rb.AddForce(bulletView.transform.forward * bulletModel.Speed, ForceMode.Impulse);
+            bulletView.AudioSource.PlayOneShot(bulletModel.ShootSound);
         }
 
         public BulletModel GetBulletModel()

@@ -7,6 +7,7 @@ namespace Bullet
     public class BulletView : MonoBehaviour
     {
         [SerializeField] private Rigidbody rb;
+        [SerializeField] private AudioSource audioSource;
 
         private BulletController bulletController;
         private float bulletLife;
@@ -17,10 +18,16 @@ namespace Bullet
             get => rb;
         }
 
+        public AudioSource AudioSource
+        {
+            get => audioSource;
+        }
+
         private void Start()
         {
             bulletLife = bulletController.GetBulletModel().LifeTime;
             explosion = bulletController.GetBulletModel().Explosion;
+            audioSource.clip = bulletController.GetBulletModel().ShootSound;
         }
 
         private void Update()
