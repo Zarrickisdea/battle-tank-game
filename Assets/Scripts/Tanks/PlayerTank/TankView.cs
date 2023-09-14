@@ -12,6 +12,7 @@ namespace PlayerTank
         [SerializeField] private Transform healthBar;
         [SerializeField] private FillValueNumber healthValue;
         [SerializeField] private AudioSource audioSource;
+        [SerializeField] private Transform turretTransform;
 
         public Rigidbody Rb
         {
@@ -28,9 +29,20 @@ namespace PlayerTank
             get => achievementSystem;
         }
 
+        public AudioSource AudioSource
+        {
+            get => audioSource;
+        }
+
+        public Transform TurretTransform
+        {
+            get => turretTransform;
+        }
+
         private void Start()
         {
             healthValue.Initialize(tankController.GetHealth());
+            audioSource.clip = tankController.GetDriveSound();
         }
 
         private void FixedUpdate()
@@ -54,6 +66,11 @@ namespace PlayerTank
         public void SetTankController(TankController controller)
         {
             tankController = controller;
+        }
+
+        public void ApplyForce(Vector3 force)
+        {
+            tankController.ApplyForce(force);
         }
 
         public void CrashDamage()

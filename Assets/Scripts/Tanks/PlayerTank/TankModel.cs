@@ -8,7 +8,7 @@ namespace PlayerTank
         private float speed;
         private float fireCooldown;
         private float damage;
-        private AudioClip shootSound;
+        private AudioClip driveSound;
         public float Health { get; set; }
 
         public TankModel(TankScriptableObject tankScriptableObject)
@@ -17,7 +17,7 @@ namespace PlayerTank
             Health = tankScriptableObject.Health;
             fireCooldown = tankScriptableObject.FireCooldown;
             damage = tankScriptableObject.Damage;
-            shootSound = tankScriptableObject.ShootSound;
+            driveSound = tankScriptableObject.DriveSound;
         }
 
         public float Speed
@@ -32,6 +32,11 @@ namespace PlayerTank
         public float Damage
         {
             get => damage;
+        }
+
+        public AudioClip DriveSound
+        {
+            get => driveSound;
         }
     }
 }

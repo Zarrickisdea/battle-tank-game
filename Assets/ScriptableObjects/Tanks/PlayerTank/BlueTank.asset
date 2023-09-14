@@ -19,3 +19,4 @@ MonoBehaviour:
   health: 100
   damage: 10
   fireCooldown: 1
+  driveSound: {fileID: 8300000, guid: d7ca9fb5aa30155449192b23d7fb3336, type: 3}

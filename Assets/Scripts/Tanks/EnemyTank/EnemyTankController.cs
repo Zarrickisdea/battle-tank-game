@@ -54,7 +54,7 @@ namespace EnemyTank
         public void Fire()
         {
             BulletSpawner bulletSpawner = enemyTankView.BulletSpawner;
-            bulletSpawner.FireBullet(bulletSpawner.transform, enemyTankModel.Damage);
+            bulletSpawner.FireBullet(enemyTankModel.Damage);
         }
 
         public void TakeDamage(float damage)
@@ -65,6 +65,11 @@ namespace EnemyTank
                 LevelManager.Instance.RemoveEnemyTank(enemyTankView);
                 GameObject.Destroy(enemyTankView.gameObject);
             }
+        }
+
+        public float GetCrashForce()
+        {
+            return enemyTankModel.CrashForce;
         }
     }
 }

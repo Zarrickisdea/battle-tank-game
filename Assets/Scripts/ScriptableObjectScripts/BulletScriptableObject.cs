@@ -12,10 +12,12 @@ namespace ScriptableObjects.Bullets
         [SerializeField] private float speed;
         [SerializeField] private float lifeTime;
         [SerializeField] private GameObject explosion;
+        [SerializeField] private AudioClip shootSound;
 
         public BulletView BulletView => bulletView;
         public float Speed => speed;
         public float LifeTime => lifeTime;
         public GameObject Explosion => explosion;
+        public AudioClip ShootSound => shootSound;
     }
 }

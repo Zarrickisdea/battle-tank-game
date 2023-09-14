@@ -35,7 +35,7 @@ namespace PlayerTank
             }
             else if (context.action.name == "Fire" && canFire)
             {
-                Fire(tankModel.Damage);
+                Fire();
                 tankView.NotifyObservers(AchievementType.BulletsFired);
             }
             else if (context.action.name == "Look")
@@ -60,18 +60,26 @@ namespace PlayerTank
             {
                 tankView.Rb.velocity = Vector3.Lerp(tankView.Rb.velocity, moveDirection * tankModel.Speed, tankModel.Speed * Time.deltaTime);
                 currentVelocity = tankView.Rb.velocity;
+                if (!tankView.AudioSource.isPlaying)
+                {
+                    tankView.AudioSource.Play();
+                }
             }
             else
             {
                 tankView.Rb.velocity = Vector3.Lerp(tankView.Rb.velocity, Vector3.zero, tankModel.Speed * Time.deltaTime);
                 currentVelocity = tankView.Rb.velocity;
+                if (tankView.AudioSource.isPlaying)
+                {
+                    tankView.AudioSource.Stop();
+                }
             }
         }
 
-        public void Fire(float damage)
+        public void Fire()
         {
             BulletSpawner bulletSpawner = tankView.BulletSpawner;
-            bulletSpawner.FireBullet(bulletSpawner.transform, tankModel.Damage);
+            bulletSpawner.FireBullet(tankModel.Damage);
 
             canFire = false;
             tankView.StartCoroutine(FireCooldown());
@@ -89,7 +97,13 @@ namespace PlayerTank
             if (tankModel.Health <= 0)
             {
                 GameObject.Destroy(tankView.gameObject);
+                LevelManager.Instance.RemovePlayerTank();
             }
+        }
+
+        public void ApplyForce(Vector3 force)
+        {
+            tankView.Rb.AddForce(force, ForceMode.Impulse);
         }
 
         public float GetHealth()
@@ -100,6 +114,11 @@ namespace PlayerTank
         public Transform GetTankViewTransform()
         {
             return tankView.transform;
+        }
+
+        public AudioClip GetDriveSound()
+        {
+            return tankModel.DriveSound;
         }
     }
 }

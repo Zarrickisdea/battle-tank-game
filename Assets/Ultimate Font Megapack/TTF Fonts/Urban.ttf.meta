@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5ef8a5e2cd0c6ad4883ce3a903103c18
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Urban
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c01435013a40d3c4393f1daefda3a4fc, type: 3}
+  - {fileID: 12800000, guid: 5a3842da231442544acabf4a9a47aab7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

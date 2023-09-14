@@ -10,7 +10,7 @@ public class BulletSpawner : MonoBehaviour
 
     private Queue<BulletController> bulletPool = new Queue<BulletController>();
 
-    private void Start()
+    private void Awake()
     {
         InitializeBulletPool();
     }
@@ -19,22 +19,18 @@ public class BulletSpawner : MonoBehaviour
     {
         for (int i = 0; i < poolSize; i++)
         {
-            BulletModel bulletModel = new BulletModel(bullet);
-            BulletController bulletController = new BulletController(bullet.BulletView, bulletModel);
-            bulletController.SetBulletSpawner(this);
-            bulletController.Deactivate();
+            BulletController bulletController = GenerateBullet();
             bulletPool.Enqueue(bulletController);
         }
     }
 
-    public void FireBullet(Transform transform, float damage)
+    private BulletController GenerateBullet()
     {
-        BulletController bulletController = GetBulletFromPool();
-        bulletController.GetBulletView().transform.position = transform.position;
-        bulletController.GetBulletView().transform.rotation = transform.rotation;
-        bulletController.SetDamage(damage);
-        bulletController.GetBulletView().gameObject.SetActive(true);
-        bulletController.Fire();
+        BulletModel bulletModel = new BulletModel(bullet);
+        BulletController bulletController = new BulletController(bullet.BulletView, bulletModel, transform);
+        bulletController.SetBulletSpawner(this);
+        bulletController.Deactivate();
+        return bulletController;
     }
 
     private BulletController GetBulletFromPool()
@@ -45,14 +41,19 @@ public class BulletSpawner : MonoBehaviour
         }
         else
         {
-            BulletModel bulletModel = new BulletModel(bullet);
-            BulletController newBulletController = new BulletController(bullet.BulletView, bulletModel);
-            return newBulletController;
+            return GenerateBullet();
         }
     }
 
-    public void AddBackToPool(BulletController bulletController)
+    public void ReturnBulletToPool(BulletController bulletController)
     {
         bulletPool.Enqueue(bulletController);
+    }
+
+    public void FireBullet(float damage)
+    {
+        BulletController bulletController = GetBulletFromPool();
+        bulletController.SetDamage(damage);
+        bulletController.Activate(transform);
     }
 }

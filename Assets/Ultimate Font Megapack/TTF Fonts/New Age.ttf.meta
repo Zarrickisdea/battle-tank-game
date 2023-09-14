@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c315f1ee68c94294b96c93b2f717e60e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - New Age
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 943ec05a8020359448eae209c16fd2e5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

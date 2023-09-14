@@ -9,7 +9,7 @@ namespace EnemyTank
         private float damage;
         private float patrolRadius;
         private float rotationSpeed;
-        private AudioClip shootSound;
+        private float crashForce;
 
         public float Speed { get => speed; }
         public float Health { get; set; }
@@ -18,6 +18,8 @@ namespace EnemyTank
 
         public float RotationSpeed { get => rotationSpeed; }
 
+        public float CrashForce { get => crashForce; }
+
         public EnemyTankModel(EnemyTankScriptableObject enemyTankScriptableObject)
         {
             speed = enemyTankScriptableObject.Speed;
@@ -25,7 +27,7 @@ namespace EnemyTank
             damage = enemyTankScriptableObject.Damage;
             patrolRadius = enemyTankScriptableObject.PatrolRadius;
             rotationSpeed = enemyTankScriptableObject.RotationSpeed;
-            shootSound = enemyTankScriptableObject.ShootSound;
+            crashForce = enemyTankScriptableObject.CrashForce;
         }
     }
 }

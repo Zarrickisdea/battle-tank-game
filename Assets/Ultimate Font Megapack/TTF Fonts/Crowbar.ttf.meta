@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 49d46725a620bd84f8bea292751d0a36
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Crowbar
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6bf75d30f646a30428978501541882d6, type: 3}
+  - {fileID: 12800000, guid: 38e98a60c8ec15c4a92cf3f5f7bbd7e9, type: 3}
+  - {fileID: 12800000, guid: c7194ae11610d0445af6ba5242d8db97, type: 3}
+  - {fileID: 12800000, guid: cb90cacf9099bf34382aad1e852e3b3e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
