@@ -2,7 +2,6 @@ using UnityEngine;
 using Bullet;
 using ScriptableObjects.Bullets;
 using System.Collections.Generic;
-using PlayerTank;
 
 public class BulletSpawner : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class BulletSpawner : MonoBehaviour
 
     private Queue<BulletController> bulletPool = new Queue<BulletController>();
 
-    private void Start()
+    private void Awake()
     {
         InitializeBulletPool();
     }
@@ -28,20 +27,10 @@ public class BulletSpawner : MonoBehaviour
     private BulletController GenerateBullet()
     {
         BulletModel bulletModel = new BulletModel(bullet);
-        BulletController bulletController = new BulletController(bullet.BulletView, bulletModel);
+        BulletController bulletController = new BulletController(bullet.BulletView, bulletModel, transform);
         bulletController.SetBulletSpawner(this);
-        bulletController.GetBulletView().gameObject.SetActive(false);
+        bulletController.Deactivate();
         return bulletController;
-    }
-
-    public void FireBullet(Transform spawner, float damage)
-    {
-        BulletController bulletController = GetBulletFromPool();
-        bulletController.SetDamage(damage);
-        bulletController.GetBulletView().transform.position = spawner.position;
-        bulletController.GetBulletView().transform.rotation = spawner.rotation;
-        bulletController.GetBulletView().gameObject.SetActive(true);
-        bulletController.Fire();
     }
 
     private BulletController GetBulletFromPool()
@@ -52,8 +41,19 @@ public class BulletSpawner : MonoBehaviour
         }
         else
         {
-            BulletController newbulletController = GenerateBullet();
-            return newbulletController;
+            return GenerateBullet();
         }
+    }
+
+    public void ReturnBulletToPool(BulletController bulletController)
+    {
+        bulletPool.Enqueue(bulletController);
+    }
+
+    public void FireBullet(float damage)
+    {
+        BulletController bulletController = GetBulletFromPool();
+        bulletController.SetDamage(damage);
+        bulletController.Activate(transform);
     }
 }

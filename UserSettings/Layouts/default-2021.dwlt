@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 3840
     height: 2117
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 164
+  controlID: 132
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 165
+  controlID: 133
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 8096}
   vertical: 0
-  controlID: 166
+  controlID: 134
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -479,9 +479,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1e610000
+      m_SelectedIDs: 865f0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 6ef9ffffdafaffff
+      m_ExpandedIDs: 2efaffffd4faffffdafaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: Bullet(Clone)
@@ -492,7 +492,7 @@ MonoBehaviour:
           y: 0
           width: 0
           height: 0
-        m_UserData: -157220
+        m_UserData: -317466
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -787,9 +787,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -5.4988213, y: 4.763462, z: 7.981}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: -5.4988213, y: 4.763462, z: 7.981}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -836,13 +836,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.13489756, y: -0.0014919378, z: 0.00020250774, w: 0.99086314}
+    m_Target: {x: -0.5205589, y: 0.47917262, z: -0.5112973, w: -0.4878733}
     speed: 2
-    m_Value: {x: 0.13489693, y: -0.0014919308, z: 0.0002025068, w: 0.99085855}
+    m_Value: {x: -0.52055025, y: 0.4791647, z: -0.5112888, w: -0.4878652}
   m_Size:
-    m_Target: 10
+    m_Target: 36.9227
     speed: 2
-    m_Value: 10
+    m_Value: 36.9227
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -953,22 +953,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ScriptableObjects/Tanks/PlayerTank
+    - Assets/ScriptableObjects/Bullets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/ScriptableObjects/Tanks/PlayerTank
+  - Assets/ScriptableObjects/Bullets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\moham\Desktop\battle-tank-game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 36100100
-    m_LastClickedID: 69686
-    m_ExpandedIDs: 00000000785e00007a5e00007c5e00007e5e0000805e0000825e0000845e0000865e0000885e00008a5e00008c5e00008e5e0000905e0000925e0000945e0000bc5e0000c45e00003010010000ca9a3bffffff7f
+    m_SelectedIDs: cc680000
+    m_LastClickedID: 26828
+    m_ExpandedIDs: 0000000040680000426800004468000046680000486800004a6800004c6800004e68000050680000526800005468000056680000586800005a6800005c68000082680000ca68000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -996,7 +996,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000785e00007a5e00007c5e00007e5e0000805e0000825e0000845e0000865e0000885e00008a5e00008c5e00008e5e0000905e0000925e0000945e0000
+    m_ExpandedIDs: 0000000040680000426800004468000046680000486800004a6800004c6800004e68000050680000526800005468000056680000586800005a6800005c680000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

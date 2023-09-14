@@ -53,17 +53,19 @@ namespace Bullet
             {
                 tankView.TakeDamage(bulletController.GetBulletModel().Damage);
             }
-
             bulletController.DestroyBullet();
         }
 
+        private void OnDisable()
+        {
+            bulletLife = bulletController.GetBulletModel().LifeTime;
+        }
 
         public void Explode()
         {
             GameObject effect = Instantiate(explosion, transform.position, transform.rotation);
             effect.GetComponent<ParticleSystem>().Play();
             Destroy(effect, 1f);
-            bulletController.Deactivate();
         }
 
         public void SetBulletController(BulletController bulletController)
