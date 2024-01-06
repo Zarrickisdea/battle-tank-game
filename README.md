@@ -9,6 +9,14 @@ https://github.com/Zarrickisdea/battle-tank-game/assets/77843021/7ddb5bdd-5253-4
 
 ---
 
+## Features
+
+- Three different types of tanks, each with their own unique charcteristics
+- Enemy AI tanks that chase on you detection
+- Achievement System
+
+---
+
 ## Design Patterns
 
 - MVC Design Pattern: Organizes code into Model, View, and Controller layers for maintainability.
